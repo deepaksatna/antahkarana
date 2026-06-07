@@ -104,7 +104,16 @@ separate builds.
 | **Continual benchmark** | consolidation cuts forgetting ~**60–80×** (0.242 → 0.003) | ✅ |
 | **Divya-dṛṣṭi + Pramāṇa** | accepted-prediction accuracy rises **0.80 → 0.91**, abstains on blind inputs | ✅ |
 | **Track B — embodiment** | karma loop (success **1.00** vs random 0.30); **battery→guṇa** (ε 0.087 hungry → 0.122 charged); retention across 4 regimes **0.38 → 1.00** | ✅ |
-| **Track C — neuromorphic** | spiking net **matches** ANN accuracy (0.943 vs 0.929) at 10.7% spike density; ~1.9× energy floor | 🟡 (hardware pending) |
+| **Track C — neuromorphic (spiking)** | the spiking net **works** — **matches** ANN accuracy (0.943 vs 0.929) at 10.7% spike density; conservative ~1.9× software energy floor | ✅ spiking proven · ⏳ only chip deployment pending |
+
+> **About Track C "pending".** The spiking network is **done and working** — it runs and matches the
+> normal network's accuracy, which proves the architecture runs on event-driven (neuromorphic-style)
+> computation. What is *pending* is **only deployment to a real neuromorphic chip** (Intel **Loihi 2** /
+> BrainChip **Akida**), which we don't have. The **~1.9×** is a deliberately conservative *software
+> estimate* (per-operation energy only); the famous **100–1000×** neuromorphic figures come from
+> chip-only effects (event-skipping, in-memory compute, no data movement) that a GPU simulation cannot
+> reproduce — so we report the floor, not the headline. Un-pending it needs a neuromorphic board + a port
+> via Intel **Lava**; it is the *only* step in the whole project gated on hardware rather than code.
 
 Full numbers, seeds, and the **honest caveats** are in [`RESULTS.md`](RESULTS.md); the staged plan is in
 [`ROADMAP.md`](ROADMAP.md).
