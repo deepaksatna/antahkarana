@@ -16,6 +16,13 @@ tags:
 ![banner](assets/banner.png)
 
 <p align="center">
+  <a href="https://huggingface.co/deepakdsoni/antahkarana"><img alt="Hugging Face Model" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-FFD21E?style=for-the-badge"></a>
+  <a href="https://github.com/deepaksatna/antahkarana"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github&logoColor=white"></a>
+</p>
+
+> **🔗 Model & code:** **[🤗 huggingface.co/deepakdsoni/antahkarana](https://huggingface.co/deepakdsoni/antahkarana)**  ·  **[github.com/deepaksatna/antahkarana](https://github.com/deepaksatna/antahkarana)**
+
+<p align="center">
   <img alt="status" src="https://img.shields.io/badge/status-research_POC-violet?style=for-the-badge">
   <img alt="domain" src="https://img.shields.io/badge/continual_learning-no_forgetting-2ca02c?style=for-the-badge">
   <img alt="stack" src="https://img.shields.io/badge/PyTorch_·_snnTorch-GPU-ee4c2c?style=for-the-badge&logo=pytorch&logoColor=white">
