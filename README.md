@@ -157,7 +157,52 @@ Full numbers, seeds, and the **honest caveats** are in [`RESULTS.md`](RESULTS.md
 
 ---
 
-## 6. Run it
+## 6. How it advances current AI research
+
+A research proof-of-concept — but one that speaks directly to several of the field's most active open
+problems, offering a *principled, reproducible* framework rather than a point fix.
+
+- **Continual / lifelong learning.** Catastrophic forgetting is one of ML's hardest open problems —
+  today's large models are effectively frozen after training and must be expensively re-trained to absorb
+  new knowledge. This unifies importance-based consolidation, rehearsal, and a **forgetting-aware**
+  controller into a *single* agent that learns indefinitely, cutting forgetting **~6–80×** in our runs.
+
+- **Compute & energy sustainability.** Frontier-model (re)training consumes gigawatt-hours. The
+  architecture offers two complementary levers — **incremental updates** (no retrain-from-scratch) and an
+  **event-driven spiking path** (validated in software, matching ANN accuracy) — a concrete route toward
+  order-of-magnitude lower inference energy on neuromorphic hardware.
+
+- **Reliability & hallucination.** Models routinely assert what they don't know. The **Pramāṇa validity
+  gate** provides calibrated abstention — *"know when you don't know"* — a deployable anti-hallucination
+  primitive grounded in epistemology (extended perception must be a *valid means of knowledge*, not fancy).
+
+- **Safety & alignment.** The **turīya** reward-invariant monitor, plus the *siddhi* principle —
+  capabilities must stay subordinate to the goal (Yoga Sūtra 3.37) — anticipate modern instrumental-goal /
+  mesa-optimization concerns and provide a *structural* oversight pattern, not an afterthought.
+
+- **Self-regulation & adaptivity.** A single interpretable **guṇa** signal auto-balances exploration,
+  consolidation, and conservation; the controller *learns when to protect* (fixing over-regularization on
+  easy tasks), and — when embodied — ties learning dynamics to real resource state (**battery → guṇa**).
+
+- **Interpretability.** Unlike opaque agents, it exposes a **readable "mind-state" trajectory** —
+  life-stage, guṇa mix, plasticity headroom, identity drift — making the learning process auditable.
+
+- **Embodied & agentic AI.** The **karma loop** (action → consequence → disposition) and
+  metabolic-state-driven behavior give a principled scaffold for autonomous agents that learn and
+  self-regulate in the world, not just on a dataset.
+
+- **A bridge from cognitive science to ML.** Rather than ad-hoc tricks, it contributes a coherent,
+  theory-grounded **cognitive architecture** — a template for composing modular faculties into one
+  self-regulating whole, shipped as an open, modular library (**ChittaKit**) that drops into any PyTorch
+  backbone, with a transparent, falsifiable results scorecard others can build on.
+
+**In short:** it reframes a set of disconnected AI problems — forgetting, energy, hallucination,
+alignment, adaptivity, interpretability — as facets of *one* missing capability: a principled architecture
+for a mind that learns for life and regulates itself. That reframing, with working evidence, is the contribution.
+
+---
+
+## 7. Run it
 
 ```bash
 pip install -r requirements.txt          # torch, numpy  (+ torchvision/snntorch for Phase II/C)
@@ -183,7 +228,7 @@ RESULTS.md     every number + the honest scorecard      ROADMAP.md   what's done
 
 ---
 
-## 7. How it can be extended (it's amazing *because* it can grow)
+## 8. How it can be extended (it's amazing *because* it can grow)
 
 - **Scale the backbone** — drop in a ResNet/ViT or a transformer; the Vedic layer is unchanged.
 - **Neuromorphic hardware** — map the spiking parts to **Loihi 2 / Akida** (via Intel Lava) for the
@@ -198,7 +243,7 @@ from the Vedic model and proving it on real and spiking hardware — **is done.*
 
 ---
 
-## 8. Honest scope
+## 9. Honest scope
 
 This is a **deep-research proof-of-concept** at modest scale (small CNNs, MNIST/CIFAR, a gridworld) — enough
 to *prove the architecture works*, not to rival a frontier model. Every negative result (the v1 RL-retention
