@@ -1,3 +1,16 @@
+---
+license: mit
+library_name: pytorch
+tags:
+  - continual-learning
+  - cognitive-architecture
+  - spiking-neural-network
+  - reinforcement-learning
+  - neuromorphic
+  - vedic-ai
+  - research-poc
+---
+
 # Antaḥkaraṇa-Net
 
 ![banner](assets/banner.png)
