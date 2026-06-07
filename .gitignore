@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pt
+*.pth
+akn-data/
+data/MNIST/
+data/cifar*/
+.DS_Store
+.ipynb_checkpoints/
