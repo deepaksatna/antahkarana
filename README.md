@@ -110,6 +110,28 @@ Because the control layer is **backbone-agnostic**, the *same* agent runs on a t
 policy, or a spiking net — which is why embodiment and neuromorphic are *extensions* of one model, not
 separate builds.
 
+### 3.1 Layer-by-layer topology
+
+The network is a **trunk body** (perceives + decides, `x → logits`) wrapped by a **control ring** (the mind)
+that retunes *how* the trunk learns, task by task. Faculty layers L4–L7 read the trunk's features / logits /
+weights and write back penalties, gates, and a drift alarm.
+
+![topology](assets/topology.png)
+
+| Layer | Faculty | Mechanism (as implemented) | Unlocks |
+|---|---|---|---|
+| **L1** | manas | precision-weighted attention; `normalized_avidya = H/logK` as novelty | serial foveation; route uncertain inputs to slower processing |
+| **L2** | backbone φ | shared encoder (MLP / CNN / spiking / Q-net) | swap in ResNet/ViT/SSM; spiking φ → 0.52× energy |
+| **L3** | buddhi | per-task heads over φ; design form = drift-diffusion bound | MoE routing for task-free learning |
+| **L4** | ahaṃkāra | self latent `z_self` conditioning perception | identity-conditioned attention & decisions |
+| **L5** | chitta | `SamskaraMemory`: penalty `β·ΣΩ(θ−θ*)²`, sleep `Ω←(1−λ)Ω+γ·Fisher` + replay | **the core** — forgetting ~60–80× down; λ = stability↔plasticity knob |
+| **L6** | pramāṇa | temperature-calibrated `accept = conf ≥ threshold`, else abstain | gated accuracy 0.978 @ 0.49 coverage; safety knob |
+| **L7** | turīya | `drift = 1 − cos(probe_now, probe_imprint)` | identity tripwire → raise β / halt |
+| **ring** | guṇa · āśrama · tapas | `(s,r,t)` → `α,β`; plasticity envelope (re-opens on novelty); replay allocation by need | self-tuning learning; meta-learned control |
+
+The full spec — every equation, code reference, and "what's possible" per layer — is in
+[`ARCHITECTURE_TOPOLOGY.md`](ARCHITECTURE_TOPOLOGY.md) (regenerate the figure with `python3 make_topology_figure.py`).
+
 ---
 
 ## 4. What we achieved — results (all from real runs)
@@ -224,6 +246,7 @@ experiments/   integrated_agent · capacity/continual benchmarks · divya_drsti 
 philosophy/    the deep study: texts & mantras → modern science → Sanskrit formulae → math models → architecture
 assets/        banner · architecture diagram · results figures
 RESULTS.md     every number + the honest scorecard      ROADMAP.md   what's done / what's next
+ARCHITECTURE_TOPOLOGY.md   layer-by-layer architecture + topology (figure: make_topology_figure.py)
 ```
 
 ---
